@@ -16,22 +16,20 @@ class Room():
     def add_connection(self, room, connector, actions):
         for direction in actions:
             self.rooms[direction] = room
-        self.connections.append((connector. actions[0]))
+        self.connectors.append((connector, actions[0]))
 
-    def enter_room(self):
-        print self.name
+    def enter_room(self, inventory):
+        print (self.name)
         print
-        print self.description
+        print (self.description)
         print
-        if len(self.connectors) > 0:
-            for connector in self.connectors:
-                print "There is a " + connector[0] + \
-                        "that goes " + connector[1]
-
-    def connect_rooms(self, direction, room):
-        opposite_direction = {'n':'s','s':'n','e':'w','w':'e'}
-        self.add_room(direction, room)
-        room.add_room(opposite_direction[direction], self)
+        for connector in self.connectors:
+            print ("There is a " + connector[0] + \
+                   " that goes " + connector[1] + ".")
+        print
+        for item in self.items:
+            print ("You see a " + item.name + " here.")
+        print
 
     def get_name(self):
         return self.name
@@ -46,7 +44,7 @@ class Room():
         if command in self.rooms.keys():
             new_room = self.next_room(command)
             return new_room
-        elif "get" in command:
+        elif "get" in command or "take" in command:
             for item in self.items:
                 if item.name in command:
                     inventory.add(item)
@@ -56,4 +54,3 @@ class Room():
                     return "I don't know what you want to pick up."
         else:
             return None
-
