@@ -109,18 +109,24 @@ hallway4 = Room('Hallway', 'You are in the Hallway', 'h4')
 office1 = Room ('Front Office', 'You are in the Front Office', 'fo')
 bathroom1 = Room('bathroom', 'You are in the bathroom.', 'br1')
 
-
+# entrance connecting the entrance from the street to the stairwell
 entrance_stairs.add_connection(entrance_stairwell, "doorway", ["north", "n"])
 entrance_stairwell.add_connection(entrance_stairs, "doorway", ["south", "s"])
 
+# connecting the stairwell to the entrance of e3
 entrance_stairwell.add_connection(entrance, "doorway", ["north", "n"])
 entrance.add_connection(entrance_stairwell, "doorway", ["south", "s"])
 
+# connecting the entrance of e3 to the office to the west
 entrance.add_connection(office1, "door", ["west", "w"])
 office1.add_connection(entrance, "door", ["south", "s"])
 
-entrance_stairs.add_connection(entrance_stairwell, "doorway", ["north", "n"])
-entrance_stairwell.add_connection(entrance_stairs, "doorway", ["south", "s"])
+# connecting the entrance of e3 to the 1st hallway to the east
+entrance.add_connection(hallway1, "walkway", ["east", "e"])
+hallway1.add_connection(entrance, "walkway", ["south", "s"])
+
+
+
 
 
 
