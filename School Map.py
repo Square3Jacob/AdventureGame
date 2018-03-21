@@ -108,25 +108,33 @@ hallway3 = Room('Hallway', 'You are in the Hallway', 'h3')
 hallway4 = Room('Hallway', 'You are in the Hallway', 'h4')
 office1 = Room ('Front Office', 'You are in the Front Office', 'fo')
 bathroom1 = Room('bathroom', 'You are in the bathroom.', 'br1')
+hallway1part2 = Room('Hallway', 'You are still in the Hallway', 'h1p2')
+entrance = Room('Entrance', 'You are in the Entrance of e3 Civic High', 'e')
+
+
+
 
 # entrance connecting the entrance from the street to the stairwell
-entrance_stairs.add_connection(entrance_stairwell, "doorway", ["north", "n"])
-entrance_stairwell.add_connection(entrance_stairs, "doorway", ["south", "s"])
+entrance_stairs.add_connection(entrance_stairwell, "doorway", ["south", "s"])
+entrance_stairwell.add_connection(entrance_stairs, "doorway", ["north", "n"])
 
 # connecting the stairwell to the entrance of e3
-entrance_stairwell.add_connection(entrance, "doorway", ["north", "n"])
-entrance.add_connection(entrance_stairwell, "doorway", ["south", "s"])
+entrance_stairwell.add_connection(entrance, "doorway", ["south", "s"])
+entrance.add_connection(entrance_stairwell, "doorway", ["north", "n"])
 
 # connecting the entrance of e3 to the office to the west
-entrance.add_connection(office1, "door", ["west", "w"])
-office1.add_connection(entrance, "door", ["south", "s"])
+entrance.add_connection(office1, "door", ["west", "e"])
+office1.add_connection(entrance, "door", ["south", "w"])
 
 # connecting the entrance of e3 to the 1st hallway to the east
-entrance.add_connection(hallway1, "walkway", ["east", "e"])
-hallway1.add_connection(entrance, "walkway", ["south", "s"])
+entrance.add_connection(hallway1, "walkway", ["east", "w"])
+hallway1.add_connection(entrance, "walkway", ["west", "e"])
 
+# connecting the first half of hallway1 to the second half (hallway1part2)
+hallway1.add_connection(hallway1part2, "walkway", ["east", "e"])
+hallway1part2.add_connection(hallway1, "walkway", ["west", "e"])
 
-
+#
 
 
 
