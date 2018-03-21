@@ -123,16 +123,16 @@ entrance_stairwell.add_connection(entrance, "doorway", ["south", "s"])
 entrance.add_connection(entrance_stairwell, "doorway", ["north", "n"])
 
 # connecting the entrance of e3 to the office to the west
-entrance.add_connection(office1, "door", ["west", "e"])
-office1.add_connection(entrance, "door", ["south", "w"])
+entrance.add_connection(office1, "door", ["east", "e"])
+office1.add_connection(entrance, "door", ["west", "w"])
 
 # connecting the entrance of e3 to the 1st hallway to the east
-entrance.add_connection(hallway1, "walkway", ["east", "w"])
-hallway1.add_connection(entrance, "walkway", ["west", "e"])
+entrance.add_connection(hallway1, "walkway", ["west", "w"])
+hallway1.add_connection(entrance, "walkway", ["east", "e"])
 
 # connecting the first half of hallway1 to the second half (hallway1part2)
-hallway1.add_connection(hallway1part2, "walkway", ["east", "e"])
-hallway1part2.add_connection(hallway1, "walkway", ["west", "e"])
+hallway1.add_connection(hallway1part2, "walkway", ["west", "w"])
+hallway1part2.add_connection(hallway1, "walkway", ["east", "e"])
 
 #
 
