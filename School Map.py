@@ -109,8 +109,7 @@ hallway4 = Room('Hallway', 'You are in the Hallway', 'h4')
 office1 = Room ('Front Office', 'You are in the Front Office', 'fo')
 bathroom1 = Room('bathroom', 'You are in the bathroom.', 'br1')
 hallway1part2 = Room('Hallway', 'You are still in the Hallway', 'h1p2')
-entrance = Room('Entrance', 'You are in the Entrance of e3 Civic High', 'e')
-
+junction1 = Room('Corner Hallway', 'You are onthe corner connecting 2 hallways', 'j1')
 
 
 
@@ -134,7 +133,7 @@ hallway1.add_connection(entrance, "walkway", ["east", "e"])
 hallway1.add_connection(hallway1part2, "walkway", ["west", "w"])
 hallway1part2.add_connection(hallway1, "walkway", ["east", "e"])
 
-#
+# connecting the Junction1 with hallway1part2
 
 
 
